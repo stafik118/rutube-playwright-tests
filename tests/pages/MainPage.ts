@@ -4,6 +4,12 @@ export class MainPage extends BasePage {
   private readonly headerLocator: Locator;
   private readonly categoriesTabsLocator: Locator;
   private readonly menuLocator: Locator;
+  private readonly headerAddButtonLocator: Locator;
+  private readonly headerNotificationButtonLocator: Locator;
+  private readonly headerLoginButtonLocator: Locator;
+  private readonly headerAddButtonListLocator: Locator;
+  private readonly headerNotificationPopupLocator: Locator;
+  private readonly autorizhationModalLocator: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -16,17 +22,54 @@ export class MainPage extends BasePage {
       })
       .nth(1);
     this.menuLocator = this.page.getByLabel('Облегченная панель навигации');
+    this.headerAddButtonLocator = this.page.getByRole('button', { name: 'Добавить' });
+    this.headerNotificationButtonLocator = this.page.getByRole('button', { name: 'Уведомления' });
+    this.headerLoginButtonLocator = this.page.getByRole('button', { name: 'Вход и регистрация' });
+    this.headerAddButtonListLocator = this.page.locator('.wdp-header-right-module__uploader ul');
+    this.headerNotificationPopupLocator = this.page.locator(
+      '.wdp-notifications-popup-module__wrapper ',
+    );
+    this.autorizhationModalLocator = this.page
+      .locator('iframe[title="Multipass"]')
+      .contentFrame()
+      .locator('div[role="form"]');
   }
   async open() {
     await this.page.goto('https://rutube.ru/');
   }
   async headerHasCorrectAriaSnapshot() {
-    await expect(this.headerLocator).toMatchAriaSnapshot();
+    await expect(this.headerLocator).toMatchAriaSnapshot({ name: 'headerAriaSnapshot.yml' });
   }
   async categoriesTabsAriaSnapshot() {
-    await expect(this.categoriesTabsLocator).toMatchAriaSnapshot();
+    await expect(this.categoriesTabsLocator).toMatchAriaSnapshot({
+      name: 'categoriesTabsriaSnapshot.yml',
+    });
   }
   async menuHasCorrectAriaSnapshot() {
-    await expect(this.menuLocator).toMatchAriaSnapshot();
+    await expect(this.menuLocator).toMatchAriaSnapshot({ name: 'menuAriaSnapshot.yml' });
+  }
+  async openAddPopupList() {
+    await this.headerAddButtonLocator.click();
+  }
+  async openNotificationPopup() {
+    await this.headerNotificationButtonLocator.click();
+  }
+  async openAutorizathionModal() {
+    await this.headerLoginButtonLocator.click();
+  }
+  async addPopupListHasCorrectSnapshot() {
+    await expect(this.headerAddButtonListLocator).toMatchAriaSnapshot({
+      name: 'addButtonSnapshot.yml',
+    });
+  }
+  async NotificationPopupHasCorrectSnapshot() {
+    await expect(this.headerNotificationPopupLocator).toMatchAriaSnapshot({
+      name: 'notificationaSnapshot.yml',
+    });
+  }
+  async AutorizathionModalHasCorrectSnapshot() {
+    await expect(this.autorizhationModalLocator).toMatchAriaSnapshot({
+      name: 'autorizationSnapshot.yml',
+    });
   }
 }
