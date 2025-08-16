@@ -37,7 +37,7 @@ export class MainPage extends BasePage {
       .contentFrame()
       .locator('div[role="form"]');
     this.menuButtonLocator = this.page.getByRole('button', { name: 'Открыть меню навигации' });
-    this.openMenuAriaLocator = this.page.locator('.menu-content-module__menuOpen');
+    this.openMenuAriaLocator = this.page.locator('.menu-auth-module__title');
     this.changeThemeButtonLocator = this.page.getByRole('button', {
       name: 'Переключить на светлую тему',
     });
@@ -50,7 +50,10 @@ export class MainPage extends BasePage {
   }
   async openFullMenu() {
     await this.menuButtonLocator.click();
-    await this.page.waitForSelector('.menu-content-module__menuOpen', { state: 'visible' });
+    await this.page.waitForSelector('.menu-content-module__menuOpen', {
+      state: 'visible',
+      timeout: 10000,
+    });
   }
   async headerHasCorrectAriaSnapshot() {
     await expect(this.headerLocator).toMatchAriaSnapshot({ name: 'headerAriaSnapshot.yml' });
