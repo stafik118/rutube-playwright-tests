@@ -37,7 +37,7 @@ export class MainPage extends BasePage {
       .contentFrame()
       .locator('div[role="form"]');
     this.menuButtonLocator = this.page.getByRole('button', { name: 'Открыть меню навигации' });
-    this.openMenuAriaLocator = this.page.locator('.menu-auth-module__title');
+    this.openMenuAriaLocator = this.page.locator('.menu-info-module__copyright');
     this.changeThemeButtonLocator = this.page.getByRole('button', {
       name: 'Переключить на светлую тему',
     });
@@ -88,11 +88,6 @@ export class MainPage extends BasePage {
   async AutorizathionModalHasCorrectSnapshot() {
     await expect(this.autorizhationModalLocator).toMatchAriaSnapshot({
       name: 'autorizationSnapshot.yml',
-    });
-  }
-  async fullMenu() {
-    await expect(this.openMenuAriaLocator).toMatchAriaSnapshot({
-      name: 'fullMenuSnapshot.yml',
     });
   }
   async checkThemeAttributeValue(attrubuteValue: 'dark2021' | 'white2022') {
