@@ -41,4 +41,15 @@ export class BasePage {
   protected async checkAriaSnapshot(locator: Locator, ariaName: string) {
     await expect(locator).toMatchAriaSnapshot({ name: ariaName });
   }
+  protected async checkLayoutByScreenshot(locator: Locator, screenShotName: string) {
+    await expect(locator).toHaveScreenshot(screenShotName);
+  }
+  protected async hideElement(selector: string) {
+    await this.page.evaluate((selector) => {
+      const header = document.querySelector(selector);
+      if (header) {
+        (header as HTMLElement).style.display = 'none';
+      }
+    }, selector);
+  }
 }
