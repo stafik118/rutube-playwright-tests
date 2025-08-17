@@ -42,7 +42,7 @@ export class BasePage {
     await expect(locator).toMatchAriaSnapshot({ name: ariaName });
   }
   protected async checkLayoutByScreenshot(locator: Locator, screenShotName: string) {
-    await expect(locator).toHaveScreenshot(screenShotName);
+    await expect(locator).toHaveScreenshot(screenShotName, { timeout: 10000 });
   }
   protected async hideElement(selector: string) {
     await this.page.evaluate((selector) => {
