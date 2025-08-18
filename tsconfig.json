@@ -1,8 +1,45 @@
+// {
+//   "compilerOptions": {
+//     "baseUrl": "./tests",
+//     "paths": {
+//       "*": ["*"]
+//     }
+//   }
+// }
+// {
+//   "compilerOptions": {
+//     "target": "es6",                          // Целевая версия JavaScript
+//     "module": "commonjs",                     // Система модулей
+//     "strict": true,                           // Включение строгого режима
+//     "esModuleInterop": true,                  // Включение совместимости с ES модулями
+//     "skipLibCheck": true,                     // Пропуск проверки типов библиотек
+//     "forceConsistentCasingInFileNames": true // Принудительное соблюдение регистра в именах файлов
+//   },
+//   "include": [
+//     "src/**/*.ts",                            // Папка с вашими исходными файлами TypeScript
+//     "tests/**/*.ts"                           // Папка с вашими тестами (если есть)
+//   ],
+//   "exclude": [
+//     "node_modules",                           // Исключение папки node_modules
+//     "**/*.spec.ts"                            // Исключение файлов тестов, если не требуется
+//   ]
+// }
 {
   "compilerOptions": {
-    "baseUrl": "./tests",
-    "paths": {
-      "*": ["*"]
-    }
-  }
+    "target": "es6", // или другой целевой стандарт
+    "module": "commonjs", // или другой модульный стандарт
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    // другие параметры компилятора
+  },
+  "include": [
+    "tests/**/*.ts",          // Включает все файлы TypeScript в папке tests и подпапках
+    "tests/**/*.spec.ts"      // Включает все файлы тестов в папке tests
+  ],
+  "exclude": [
+    "node_modules",           // Исключает папку node_modules
+    "**/*.spec.ts"            // Исключает все файлы тестов, если не требуется
+  ]
 }
