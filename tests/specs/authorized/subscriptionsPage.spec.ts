@@ -1,5 +1,5 @@
 import test from '@playwright/test';
-import { SubscriptionsPage } from '../../pages/SubscriptionsPage';
+import { SubscriptionsPage } from '../../pages/subscriptionsPage';
 
 test('Проверка доступности контента для авториз. пользователя', async ({ page }) => {
   const subscriptionsPage = new SubscriptionsPage(page);
