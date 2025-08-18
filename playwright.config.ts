@@ -44,7 +44,7 @@ export default defineConfig({
     {
       name: 'chromium authorized',
       use: { ...devices['Desktop Chrome'], storageState: 'tests/playwright/.auth/user.json' },
-      // dependencies: ['auth'],
+      dependencies: ['auth'],
       testDir: 'tests/specs/authorized',
       snapshotPathTemplate: 'tests/snapshot/authorized/{testFilePath}/{arg}{ext}',
     },
@@ -55,10 +55,10 @@ export default defineConfig({
       snapshotPathTemplate: 'tests/snapshot/unauthorized/{testFilePath}/{arg}{ext}',
     },
 
-    // {
-    //   name: 'auth',
-    //   testMatch: 'tests/specs/authTest.spec.ts',
-    // },
+    {
+      name: 'auth',
+      testMatch: 'tests/specs/authTest.spec.ts',
+    },
 
     /* Test against mobile viewports. */
     // {
