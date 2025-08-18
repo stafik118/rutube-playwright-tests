@@ -1,5 +1,5 @@
 import { test as base } from '@playwright/test';
-import { MainPage } from '../pages/mainPage';
+import { MainPage } from '../pages/MainPage';
 import { CategoriesPage } from '../pages/CategoriesPage';
 
 // Declare the types of your fixtures.
