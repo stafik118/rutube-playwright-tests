@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
-    "baseUrl": "./tests", // Установите baseUrl на tests
+    "target": "es6",
+    "module": "commonjs",
+    "baseUrl": "./tests",
     "paths": {
-      "@pages/*": ["pages/*"] // Добавьте алиас для папки pages
+      "@pages/*": ["pages/*"],
+      "@specs/*": ["specs/*"]
     },
-    "moduleResolution": "node", // Убедитесь, что используется правильное разрешение модулей
-    "esModuleInterop": true, // Включите это, если используете CommonJS модули
-    "skipLibCheck": true, // Пропустите проверку типов в библиотеках
-    "strict": true // Включите строгую проверку типов
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
-  "include": ["tests/**/*"], // Убедитесь, что включены все тестовые файлы
-  "exclude": ["node_modules"] // Исключите папку node_modules
+  "include": ["tests/**/*"],
+  "exclude": ["node_modules"]
 }
