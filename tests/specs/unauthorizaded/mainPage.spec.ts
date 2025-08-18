@@ -1,5 +1,5 @@
 import { test, expect } from '../../fixtures/fixtures';
-import { MainPage } from '../../pages/mainPage';
+import { MainPage } from '../../pages/MainPage';
 
 test('Открытие главной страницы неавториз. пользователя', async ({ mainPage }) => {});
 test('Проверка доступности элементов хэдера неавториз. пользователя', async ({ mainPage }) => {
