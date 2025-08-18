@@ -2,8 +2,13 @@
   "compilerOptions": {
     "baseUrl": "./tests", // Установите baseUrl на tests
     "paths": {
-      "*": ["*"], // Это позволит вам импортировать файлы из tests/pages и других папок
       "@pages/*": ["pages/*"] // Добавьте алиас для папки pages
-    }
-  }
+    },
+    "moduleResolution": "node", // Убедитесь, что используется правильное разрешение модулей
+    "esModuleInterop": true, // Включите это, если используете CommonJS модули
+    "skipLibCheck": true, // Пропустите проверку типов в библиотеках
+    "strict": true // Включите строгую проверку типов
+  },
+  "include": ["tests/**/*"], // Убедитесь, что включены все тестовые файлы
+  "exclude": ["node_modules"] // Исключите папку node_modules
 }
